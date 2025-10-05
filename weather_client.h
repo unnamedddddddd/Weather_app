@@ -1,4 +1,5 @@
 #pragma once
+#include <fstream>
 using namespace std;
 
 size_t WriteCallBack(void* received_data_chunk, size_t size_of_element, size_t number_of_elements, string* my_result_string) {
@@ -8,8 +9,22 @@ size_t WriteCallBack(void* received_data_chunk, size_t size_of_element, size_t n
     return total_received_bytes;
 }
 
+string GetApiKey() {
+
+    ifstream get("config.txt");
+    if (get.is_open())
+    {
+        string api; getline(get,api);
+        return api;
+        cout << api;
+    }
+
+
+}
+
 string CorrectURL(const string& city) {
-    string url = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=API&units=metric&lang=ru";
+    string api = GetApiKey();
+    string url = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=" + api + "&units=metric&lang=ru";
     return url;
 }
 
