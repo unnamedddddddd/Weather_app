@@ -21,7 +21,7 @@ string GetApiKey() {
     }
 }
 
-string urlEncode(const string& city) {
+string URLEncode(const string& city) {
     string encoded;
     for (char c : city) {
         if (c == ' ') {
