@@ -127,6 +127,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="weather_client.h" />
+    <ClInclude Include="Weather_parser.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="config.txt" />

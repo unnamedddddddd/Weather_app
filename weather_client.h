@@ -1,5 +1,6 @@
 #pragma once
 #include <fstream>
+#include <map>
 using namespace std;
 
 size_t WriteCallBack(void* received_data_chunk, size_t size_of_element, size_t number_of_elements, string* my_result_string) {
@@ -18,13 +19,24 @@ string GetApiKey() {
         return api;
         cout << api;
     }
-
-
 }
 
-string CorrectURL(const string& city) {
+string urlEncode(const string& city) {
+    string encoded;
+    for (char c : city) {
+        if (c == ' ') {
+            encoded += "%20";
+        }
+        else {
+            encoded += c;
+        }
+    }
+    return encoded;
+}
+
+string CorrectURL(const string& city){
     string api = GetApiKey();
-    string url = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=" + api + "&units=metric&lang=ru";
+    string url = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=" + api + "&units=metric&lang=en";
     return url;
 }
 
@@ -36,7 +48,7 @@ string PerformCURLRequest(const string &city) {
     curl = curl_easy_init();
 
     if (curl) {
-        curl_easy_setopt(curl, CURLOPT_URL, CorrectURL(city).c_str());
+        curl_easy_setopt(curl, CURLOPT_URL, CorrectURL(urlEncode(city)).c_str());
         curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, WriteCallBack);
         curl_easy_setopt(curl, CURLOPT_WRITEDATA, &result);
         curl_easy_setopt(curl, CURLOPT_SSL_VERIFYPEER, 0L);
