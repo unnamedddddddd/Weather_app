@@ -48,7 +48,7 @@ string PerformCURLRequest(const string &city) {
     curl = curl_easy_init();
 
     if (curl) {
-        curl_easy_setopt(curl, CURLOPT_URL, CorrectURL(urlEncode(city)).c_str());
+        curl_easy_setopt(curl, CURLOPT_URL, CorrectURL(URLEncode(city)).c_str());
         curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, WriteCallBack);
         curl_easy_setopt(curl, CURLOPT_WRITEDATA, &result);
         curl_easy_setopt(curl, CURLOPT_SSL_VERIFYPEER, 0L);
