@@ -35,7 +35,7 @@ string URLEncode(const string& city) {
 
 string CorrectURL(const string& city){
     //string api = GetApiKey();
-    string url = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=1b7dd1a7972a8cd7d1cd25a765b03a69&units=metric&lang=en";
+    string url = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=&units=metric&lang=en";
     return url;
 }
 
