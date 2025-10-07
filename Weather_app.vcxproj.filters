@@ -20,10 +20,13 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="weather_client.h">
+    <ClInclude Include="Headers\Weather_parser.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
-    <ClInclude Include="Weather_parser.h">
+    <ClInclude Include="Headers\weather_client.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="Headers\QtGUI.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
   </ItemGroup>

@@ -1,12 +1,11 @@
 #pragma once
 #include <fstream>
-#include <map>
 using namespace std;
 
 size_t WriteCallBack(void* received_data_chunk, size_t size_of_element, size_t number_of_elements, string* my_result_string) {
     size_t total_received_bytes = size_of_element * number_of_elements;
 
-    my_result_string->append((char*)received_data_chunk, total_received_bytes);
+    my_result_string->append(static_cast<char*>(received_data_chunk), total_received_bytes);
     return total_received_bytes;
 }
 
@@ -17,7 +16,7 @@ string GetApiKey() {
     {
         string api; getline(get,api);
         return api;
-        cout << api;
+        cout << api; 
     }
 }
 
@@ -35,8 +34,8 @@ string URLEncode(const string& city) {
 }
 
 string CorrectURL(const string& city){
-    string api = GetApiKey();
-    string url = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=" + api + "&units=metric&lang=en";
+    //string api = GetApiKey();
+    string url = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=1b7dd1a7972a8cd7d1cd25a765b03a69&units=metric&lang=en";
     return url;
 }
 

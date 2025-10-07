@@ -102,10 +102,13 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>W:\source\vcpkg\installed\x64-windows\include\qt5;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>W:\source\vcpkg\installed\x64-windows\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>Qt5Widgets.lib;Qt5Core.lib;Qt5Gui.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -126,8 +129,9 @@
     <ClCompile Include="Weather_app.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="weather_client.h" />
-    <ClInclude Include="Weather_parser.h" />
+    <ClInclude Include="Headers\QtGUI.h" />
+    <ClInclude Include="Headers\weather_client.h" />
+    <ClInclude Include="Headers\Weather_parser.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="config.txt" />

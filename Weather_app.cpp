@@ -3,19 +3,43 @@
 #include <string>
 #include <Windows.h>
 #include <algorithm>
-#include "json.hpp"
-#include "weather_client.h"
-#include "Weather_parser.h"
+#include <QtWidgets/QApplication>
+#include "Headers/json.hpp"
+#include "Headers/weather_client.h"
+#include "Headers/Weather_parser.h"
+#include "Headers/QtGUI.h"
 
-using json = nlohmann::json;
 using namespace std;
 
-int main() {
+int main(int argc, char* argv[]) {
     try {
         SetConsoleOutputCP(CP_UTF8);
         SetConsoleCP(CP_UTF8);
 
-        string choice = "y";
+
+       
+    
+        Test();
+  
+
+        QApplication app(argc, argv);
+
+        WeatherApp window;
+        window.setWindowTitle("Weather Application");
+        window.resize(400, 300);
+        window.show();
+
+        return app.exec();
+
+
+
+
+
+
+
+
+
+       /* string choice = "y";
 
         while (choice == "y" || choice == "yes" || choice == "1") {
             string city;
@@ -42,14 +66,14 @@ int main() {
                 cout << endl;
                 return 0;
             }
-        }
+        }*/
         return 0;
     }
     catch (const invalid_argument& e) {
-        cout << u8"Ошибка : " << e.what() << endl;
+        cerr << u8"Ошибка : " << e.what() << endl;
     }
     catch (const exception& e) {
-        cout << u8"Ошибка: " << e.what() << endl;
+        cerr << u8"Ошибка: " << e.what() << endl;
     }
 }
 
