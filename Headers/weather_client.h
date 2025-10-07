@@ -18,6 +18,7 @@ string GetApiKey() {
         return api;
         cout << api; 
     }
+        throw runtime_error("API key file 'config.txt' not found!");
 }
 
 string URLEncode(const string& city) {
@@ -35,7 +36,7 @@ string URLEncode(const string& city) {
 
 string CorrectURL(const string& city){
     string api = GetApiKey();
-    string url = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid" + api+ "=&units=metric&lang=en";
+    string url = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=" + api+ "=&units=metric&lang=en";
     return url;
 }
 
