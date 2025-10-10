@@ -30,9 +30,4 @@
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
   </ItemGroup>
-  <ItemGroup>
-    <Text Include="config.txt">
-      <Filter>Файлы заголовков</Filter>
-    </Text>
-  </ItemGroup>
 </Project>
